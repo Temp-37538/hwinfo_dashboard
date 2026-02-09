@@ -9,7 +9,7 @@ A lightweight, client-side dashboard for visualizing HWInfo CSV exports. Automat
 - **Drag-and-drop CSV upload** – Parse HWInfo exports with automatic format detection
 - **Smart time detection** – Recognizes date + time pairs, single timestamps, or uses row index
 - **Automatic metric grouping** – CPU, GPU, RAM, and other categories
-- **Interactive charts** – Recharts-powered visualizations with legends and tooltips 
+- **Interactive charts** – Recharts-powered visualizations with legends and tooltips
 - **100% client-side** – No server processing, no data sent anywhere
 - **Dark mode support** – Theme toggle included
 
@@ -18,6 +18,10 @@ A lightweight, client-side dashboard for visualizing HWInfo CSV exports. Automat
 ## 🚀 Quick Start
 
 ```bash
+# Clone the repo
+git clone https://github.com/Temp-37538/hwinfo_dashboard.git
+cd hwinfo_dashboard
+
 # Install dependencies
 pnpm install
 
@@ -25,7 +29,7 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000] in your browser.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
