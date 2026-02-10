@@ -28,7 +28,7 @@ export function Sidebar({ children }: Readonly<{ children: React.ReactNode }>) {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink href="#overview">Dashboard</BreadcrumbLink>
+                <BreadcrumbLink href="#overview">Results</BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator className="hidden md:block" />
               <BreadcrumbItem>

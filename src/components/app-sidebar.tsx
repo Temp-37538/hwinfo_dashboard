@@ -10,7 +10,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/sidebar"; 
 
 const data = {
   navMain: [
@@ -19,7 +19,7 @@ const data = {
       url: "#",
       items: [
         {
-          title: "Aperçu",
+          title: "Overview",
           url: "#overview",
         },
         {
@@ -35,7 +35,7 @@ const data = {
           url: "#ram",
         },
         {
-          title: "Autres",
+          title: "Other",
           url: "#other",
         },
       ],
@@ -48,14 +48,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader>
         <div className="flex   items-center gap-3  px-2 py-2 ">
-          <div className="bg-sidebar-primary text-sidebar-primary-foreground flex size-9 items-center justify-center rounded-lg text-xs font-semibold">
-            HW
+          <div className="bg-sidebar-primary text-sidebar-primary-foreground flex size-8 items-center justify-center rounded-lg text-xs font-semibold">
+            <img src="/favicon-32x32.png" alt="Logo" className="rounded-sm" />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="text-sm font-sans font-semibold bot">
+            <span className="text-sm font-geist-sans font-semibold">
               HWInfo Dashboard
             </span>
-            <span className="text-xs text-muted-foreground">Analyse CSV</span>
+            <span className="text-xs text-muted-foreground">CSV Analysis</span>
           </div>
         </div>
       </SidebarHeader>

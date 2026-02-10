@@ -118,7 +118,7 @@ function useCsvParser() {
     let text = await file.text();
     if (!text.trim()) {
       setState(null);
-      setError("Le fichier est vide.");
+      setError("The file is empty.");
       return;
     }
 
@@ -162,7 +162,7 @@ function useCsvParser() {
       );
       if (!fallbackRows.length) {
         setState(null);
-        setError("Aucune donnée détectée dans le CSV.");
+        setError("No data detected in the CSV.");
         return;
       }
 
@@ -179,7 +179,7 @@ function useCsvParser() {
 
     if (!rows.length) {
       setState(null);
-      setError("Aucune ligne valide après parsing.");
+      setError("No valid rows after parsing.");
       return;
     }
 
@@ -225,7 +225,7 @@ function useCsvParser() {
 
     if (!rows.length) {
       setState(null);
-      setError("Aucune ligne de données valide après filtrage.");
+      setError("No valid data rows after filtering.");
       return;
     }
 
@@ -315,7 +315,7 @@ function useCsvParser() {
       lastTimestamp,
       lastTimestampLabel:
         endTimestampMs !== null
-          ? new Intl.DateTimeFormat("fr-FR", {
+          ? new Intl.DateTimeFormat("en-US", {
               dateStyle: "medium",
               timeStyle: "medium",
             }).format(new Date(endTimestampMs))
@@ -367,7 +367,7 @@ function ChartCard({
 
   const formatDate = React.useMemo(
     () =>
-      new Intl.DateTimeFormat("fr-FR", {
+      new Intl.DateTimeFormat("en-US", {
         dateStyle: "medium",
         timeStyle: "medium",
       }),
@@ -376,7 +376,7 @@ function ChartCard({
 
   const formatDateDetailed = React.useMemo(
     () =>
-      new Intl.DateTimeFormat("fr-FR", {
+      new Intl.DateTimeFormat("en-US", {
         day: "numeric",
         month: "short",
         year: "numeric",
@@ -393,7 +393,7 @@ function ChartCard({
       <CardHeader>
         <CardTitle className="text-base">{title}</CardTitle>
         <CardDescription>
-          {columns.length} métrique{columns.length > 1 ? "s" : ""}
+          {columns.length} metric{columns.length > 1 ? "s" : ""}
         </CardDescription>
       </CardHeader>
       <CardContent className="px-0">
@@ -473,7 +473,7 @@ function CategorySection({
         </div>
         <Card className="mt-4">
           <CardContent className="py-6 text-sm text-muted-foreground">
-            Aucun champ numérique détecté pour cette catégorie.
+            No numeric fields detected for this category.
           </CardContent>
         </Card>
       </section>
@@ -491,7 +491,7 @@ function CategorySection({
         {chunks.map((group) => (
           <ChartCard
             key={`${id}-${group.join("::")}`}
-            title={`${title} - Groupe ${group.join(" / ")}`}
+            title={`${title} - Group ${group.join(" / ")}`}
             rows={rows}
             timeKey={timeKey}
             dateKey={dateKey}
@@ -554,9 +554,9 @@ export function CsvDashboard() {
         <div className="grid gap-6 xl:grid-cols-[1.1fr_1fr]">
           <Card>
             <CardHeader>
-              <CardTitle>Importer un CSV</CardTitle>
+              <CardTitle>Import CSV</CardTitle>
               <CardDescription>
-                Glissez-déposez un fichier ou choisissez-le depuis votre poste.
+                Drag and drop a file or choose one from your computer.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -575,14 +575,14 @@ export function CsvDashboard() {
                 onClick={handleBrowse}
               >
                 <div className="text-sm font-medium">
-                  {state?.fileName ?? "Aucun fichier sélectionné"}
+                  {state?.fileName ?? "No file selected"}
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  CSV volumineux accepté · Les données restent en mémoire
-                  pendant la session.
+                  Large CSVs supported · Data stays in memory during the
+                  session.
                 </div>
-                <span className="border-border/60 bg-background inline-flex items-center rounded-md border px-3 py-2 text-xs font-medium shadow-sm">
-                  Choisir un CSV
+                <span className="border-border/60 cursor-pointer bg-background inline-flex items-center rounded-md border px-3 py-2 text-xs font-medium shadow-sm">
+                  Choose a CSV
                 </span>
                 <Input
                   ref={inputRef}
@@ -599,7 +599,7 @@ export function CsvDashboard() {
               ) : null}
               {state?.warnings.length ? (
                 <div className="mt-4 rounded-md border border-amber-400/40 bg-amber-400/10 p-3 text-xs text-amber-700 dark:text-amber-300">
-                  <div className="font-medium">Avertissements CSV</div>
+                  <div className="font-medium">CSV warnings</div>
                   <ul className="mt-2 list-disc space-y-1 pl-4">
                     {state.warnings.slice(0, 4).map((warning) => (
                       <li key={warning}>{warning}</li>
@@ -613,8 +613,8 @@ export function CsvDashboard() {
           <div className="grid gap-4 sm:grid-cols-2">
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Lignes</CardTitle>
-                <CardDescription>Total analysé</CardDescription>
+                <CardTitle className="text-base">Rows</CardTitle>
+                <CardDescription>Total analyzed</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-semibold">
@@ -624,8 +624,8 @@ export function CsvDashboard() {
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Colonnes</CardTitle>
-                <CardDescription>Détectées</CardDescription>
+                <CardTitle className="text-base">Columns</CardTitle>
+                <CardDescription>Detected</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-semibold">
@@ -645,14 +645,14 @@ export function CsvDashboard() {
                   {state?.durationLabel ?? "—"}
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  Durée totale
+                  Total duration
                 </div>
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Séries numériques</CardTitle>
-                <CardDescription>Utilisées pour les charts</CardDescription>
+                <CardTitle className="text-base">Numeric series</CardTitle>
+                <CardDescription>Used for charts</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-3xl font-semibold">
@@ -698,7 +698,7 @@ export function CsvDashboard() {
           />
           <CategorySection
             id="other"
-            title="Autres"
+            title="Other"
             rows={state.rows}
             timeKey={state.timeKey}
             dateKey={state.dateKey}
@@ -710,7 +710,7 @@ export function CsvDashboard() {
       ) : (
         <Card className="border-dashed">
           <CardContent className="py-10 text-center text-sm text-muted-foreground">
-            Chargez un fichier CSV pour générer les charts.
+            Upload a CSV file to generate charts.
           </CardContent>
         </Card>
       )}
